@@ -33,5 +33,13 @@ Citizen.CreateThread(function()
                 showHelp = true
             end
         end
+        if GetSelectedPedWeapon(PlayerPedId()) == GetHashKey('WEAPON_SNOWBALL') then
+            SetCanAttackFriendly(PlayerPedId(), false, false)
+            SetPlayerWeaponDamageModifier(PlayerId(), 0.0)
+            SetPedSuffersCriticalHits(PlayerPedId(), false)
+        else
+            SetCanAttackFriendly(PlayerPedId(), true, false)
+            SetPedSuffersCriticalHits(PlayerPedId(), true)
+        end
     end
 end)
