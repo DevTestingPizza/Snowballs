@@ -25,21 +25,13 @@ Citizen.CreateThread(function()
             if not IsPedInAnyVehicle(GetPlayerPed(-1), true) --[[and not IsPlayerFreeAiming(PlayerId())]] then
                 if showHelp then 
                     BeginTextCommandDisplayHelp("STRING")
-                    AddTextComponentSubstringPlayerName("Press ~INPUT_VEH_FLY_VERTICAL_FLIGHT_MODE~ to pickup snowballs!")
+                    AddTextComponentSubstringPlayerName("Press ~INPUT_VEH_FLY_VERTICAL_FLIGHT_MODE~ while on foot to pickup snowballs!")
                     EndTextCommandDisplayHelp(0, 0, 1, -1)
                 end
                 showHelp = false
             else
                 showHelp = true
             end
-        end
-        if GetSelectedPedWeapon(PlayerPedId()) == GetHashKey('WEAPON_SNOWBALL') then
-            SetCanAttackFriendly(PlayerPedId(), false, false)
-            SetPlayerWeaponDamageModifier(PlayerId(), 0.0)
-            SetPedSuffersCriticalHits(PlayerPedId(), false)
-        else
-            SetCanAttackFriendly(PlayerPedId(), true, false)
-            SetPedSuffersCriticalHits(PlayerPedId(), true)
         end
     end
 end)
