@@ -6,4 +6,4 @@ files {
 	'weaponSnowball.meta'
 }
  
-data_file 'WEAPONINFO_FILE' 'weaponSnowball.meta'
+data_file 'WEAPONINFO_FILE''weaponSnowball.meta'
