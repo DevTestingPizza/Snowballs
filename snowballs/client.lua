@@ -17,6 +17,9 @@ Citizen.CreateThread(function()
         end
         Citizen.Wait(0) -- prevent crashing
         if IsNextWeatherType('XMAS') then -- check for xmas weather type
+            -- enable frozen water effect (water isn't actually ice, just looks like there's an ice layer on top of the water)
+            N_0xc54a08c85ae4d410(3.0)
+            -- preview: https://vespura.com/hi/i/2eb901ad4b1.gif
             
             SetForceVehicleTrails(true)
             SetForcePedFootstepsTracks(true)
@@ -46,6 +49,8 @@ Citizen.CreateThread(function()
                 showHelp = true
             end
         else
+            -- disable frozen water effect
+            if loaded then N_0xc54a08c85ae4d410(0.0) end
             loaded = false
             RemoveNamedPtfxAsset("core_snow")
             ReleaseNamedScriptAudioBank("ICE_FOOTSTEPS")
